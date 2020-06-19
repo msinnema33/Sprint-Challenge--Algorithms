@@ -5,8 +5,8 @@
 a)  O(n): as the size of the input increases (n), the number of operations N will increase at a linear rate
 
 
-b)  O(n^2): Because of the outer for loop and the nested inner while loop (each with a value of n), the y are multiplied together, so the number of operations will increase quadratically.
-
+b)  O(n log n): Because of the outer for loop and the nested inner while loop (each with a value of n), they are multiplied together.
+    outer loop will increase at n O(n); inner loop will increase at O(log n)
 
 c)  O(n): There is no loop, but n is still called recursively so the operation still has to go through each value(bunnies) and performe the single operation.
 

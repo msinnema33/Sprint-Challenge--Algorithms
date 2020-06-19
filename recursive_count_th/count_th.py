@@ -7,6 +7,6 @@ def count_th(word):
    counter = 0 # variable to hold the # of times the value "th" is present
    if len(word) < 2: # list is empty or only contains 1 element and will not contain "th"
        return 0
-   if word[0:2] == 'th': # if the value of the two elements = 'th'
+   if word[0:2] == 'th': # if the value of the two elements = 'th' -- need to go one larger; the last element isn't inclusive
        counter += 1 # increment the counter
-   return counter + count_th(word[1:]) # recuse through the array(word) for each element (adds calls the the stack until the end of the string is reached) 
+   return counter + count_th(word[1:]) # recurse through the list(word) for each element (adds calls the the stack until the end of the string is reached) 
