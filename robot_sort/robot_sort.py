@@ -96,10 +96,48 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # given the rules of the sort game it looks like a modification to Bubble sort will work
+        # that makes this an O(n^2) in big O notation.
+        # Can use the light on or off to toggle the swaps or lack thereof
+        # use the compare and swap instead of using the val at (pointer) to the val at (pointer + 1)
+        # light on == True will be a 1 and the loop will exit (a swap did not occur on this pass through the list and the list is sorted True means done)
+        # light on == False will be a zero and the loop will continue (a swap has happened and false means go)
+        
+        while self.light_is_on() == False: # need this toggle to get the outer loop started
+            self.set_light_on()    # Tun on so that when a swap occurs you can turn it off
+        
+            # as long as you are able to move right; swap the current item, move right and repeat.
+            while self.can_move_right() == True:
+                self.swap_item()
+                self.move_right()
 
+            # if current item > 0; swap the item and turn off the light
+                if self.compare_item() > 0:
+                    self.swap_item()
+                    self.set_light_off()
 
+                # move the to left. If there is an item, pick it up and move right.
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
+            # as long as you are able to move left, swap the current item, move left and repeat 
+            # only need to reverse compare logic and move directions from above steps!
+            while self.can_move_left() == True:
+                self.swap_item()
+                self.move_left()
+
+                # if current item < 0 (), swap the item and turn off the light
+                if self.compare_item() < 0:
+                    self.swap_item()
+                    self.set_light_off()
+
+                # move to the right. If there is an item, pick it up and move left
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+
+                    
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
