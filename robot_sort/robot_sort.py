@@ -97,6 +97,7 @@ class SortingRobot:
         Sort the robot's list.
         """
         # given the rules of the sort game it looks like a modification to Bubble sort will work
+        # that makes this an O(n^2) in big O notation.
         # Can use the light on or off to toggle the swaps or lack thereof
         # use the compare and swap instead of using the val at (pointer) to the val at (pointer + 1)
         # light on == True will be a 1 and the loop will exit (a swap did not occur on this pass through the list and the list is sorted True means done)
@@ -133,26 +134,7 @@ class SortingRobot:
                 self.swap_item()
                 self.move_right()
 
-        # while self.can_move_right():
-        #     # while there is room to the right, check if item is less value, 
-        #     # if true grab it and move right, else just move right
-        #     if self.compare_item() == -1 or self.compare_item() is None:
-        #         self.swap_item()
-        #         self.move_right()
-        #     else:
-        #         self.move_right()
-        #     # while there is room to the left,check if item has greater value, 
-        #     # if so, grab it and move left, else just go left young man
-        # while self.can_move_left():
-        #     if self.compare_item() == 1:
-        #         self.swap_item()
-        #         self.move_left()
-        #     else:
-        #         self.move_left()
-        # if self._item is not None:
-        #     self.sort()
-
-
+        
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
