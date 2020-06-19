@@ -106,7 +106,23 @@ class SortingRobot:
         while self.light_is_on() == False: # need this toggle to get the outer loop started
             self.set_light_on()    # Tun on so that when a swap occurs you can turn it off
         
-            # as long as you are able to move left, swap the current item, move left and repeat
+            # as long as you are able to move right; swap the current item, move right and repeat.
+            while self.can_move_right() == True:
+                self.swap_item()
+                self.move_right()
+
+            # if current item > 0; swap the item and turn off the light
+                if self.compare_item() > 0:
+                    self.swap_item()
+                    self.set_light_off()
+
+                # move the to left. If there is an item, pick it up and move right.
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
+            # as long as you are able to move left, swap the current item, move left and repeat 
+            # only need to reverse compare logic and move directions from above steps!
             while self.can_move_left() == True:
                 self.swap_item()
                 self.move_left()
@@ -121,20 +137,7 @@ class SortingRobot:
                 self.swap_item()
                 self.move_left()
 
-            # repeat the above steps for moving to the right. (Reverse the compare logic and move steps)
-            while self.can_move_right() == True:
-                self.swap_item()
-                self.move_right()
-
-                if self.compare_item() > 0:
-                    self.swap_item()
-                    self.set_light_off()
-
-                self.move_left()
-                self.swap_item()
-                self.move_right()
-
-        
+                    
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`

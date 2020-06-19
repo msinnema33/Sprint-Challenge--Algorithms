@@ -37,9 +37,9 @@ class Test(unittest.TestCase):
         self.assertEqual(robot._list, sorted(self.random_list))
 
     # def test_stretch_times(self):
-    #     robot = SortingRobot(self.small_list)
-    #     robot.sort()
-    #     self.assertLess(robot._time, 110)
+        # robot = SortingRobot(self.small_list)
+        # robot.sort()
+        # self.assertLess(robot._time, 110)
 
         # robot = SortingRobot(self.medium_list)
         # robot.sort()
