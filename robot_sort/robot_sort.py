@@ -103,7 +103,7 @@ class SortingRobot:
         # light on == False will be a zero and the loop will continue (a swap has happened and false means go)
         
         while self.light_is_on() == False: # need this toggle to get the outer loop started
-            self.light_is_on()    # Tun on so that when a swap occurs you can turn it off
+            self.set_light_on()    # Tun on so that when a swap occurs you can turn it off
         
             # as long as you are able to move left, swap the current item, move left and repeat
             while self.can_move_left() == True:
@@ -133,6 +133,24 @@ class SortingRobot:
                 self.swap_item()
                 self.move_right()
 
+        # while self.can_move_right():
+        #     # while there is room to the right, check if item is less value, 
+        #     # if true grab it and move right, else just move right
+        #     if self.compare_item() == -1 or self.compare_item() is None:
+        #         self.swap_item()
+        #         self.move_right()
+        #     else:
+        #         self.move_right()
+        #     # while there is room to the left,check if item has greater value, 
+        #     # if so, grab it and move left, else just go left young man
+        # while self.can_move_left():
+        #     if self.compare_item() == 1:
+        #         self.swap_item()
+        #         self.move_left()
+        #     else:
+        #         self.move_left()
+        # if self._item is not None:
+        #     self.sort()
 
 
 if __name__ == "__main__":
